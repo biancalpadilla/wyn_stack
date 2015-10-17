@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :problems
    root :to => redirect('/problems')
   # The priority is based upon order of creation: first created -> highest priority.
