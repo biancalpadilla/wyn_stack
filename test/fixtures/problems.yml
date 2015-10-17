@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  description: MyText
+  vote_count: 1
+  tags: MyString
+  solved: false
+
+two:
+  name: MyString
+  title: MyString
+  description: MyText
+  vote_count: 1
+  tags: MyString
+  solved: false
