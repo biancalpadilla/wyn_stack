@@ -4,5 +4,6 @@ class Problem < ActiveRecord::Base
   validates :description, length: { in: 10..600 }
   validates :name, length: { in: 3..17 }
 
+  belongs_to :user
   has_many :comments
 end

@@ -25,6 +25,7 @@ class ProblemsController < ApplicationController
   # POST /problems.json
   def create
     @problem = Problem.new(problem_params)
+    @problem.user_id = current_user.id
 
     respond_to do |format|
       if @problem.save
@@ -68,6 +69,7 @@ class ProblemsController < ApplicationController
 
       @comments = @problem.comments.all
       @comment = @problem.comments.build
+
     end
 
 
