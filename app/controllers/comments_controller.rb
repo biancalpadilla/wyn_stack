@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
+    redirect_to ('/problems')
   end
 
   # GET /comments/1
@@ -19,6 +20,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+
   end
 
   # POST /comments
