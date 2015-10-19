@@ -1,28 +1,19 @@
 == README
 
+For the Wyncode Trios project
+
+A forum of technical questions for Wyncode students inspired by StackOverflow.
+
+The planned model hierarchy is the following:
+The user model was used and set the parent to comment and problems models. The problem model is parent to comment. The comment model belong_to both user and problem.
+
+Login authorization and authentication was established using the gem Devise and following the guide provide by railsgirls. The Devise gem adds many attributes to the user model that includes :database_authenticatable, :registerable:recoverable, :rememberable, :trackable, :validatable.
+
+User specific actions are also included. A user may only manipulate their own problems and comments. This is accomplished with embedded ruby code that queries whether the current login user is the owner of the submissions. If true an actionable appears to the user. If not, it remains hidden.
+
+Ruby version: 2.2.3
+Rails 4.2.4, 4.2.3
+Devise 3.5.4
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
