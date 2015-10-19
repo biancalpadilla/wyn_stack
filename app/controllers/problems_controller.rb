@@ -26,6 +26,7 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new(problem_params)
     @problem.user_id = current_user.id
+    @problem.name = current_user.first_name
 
     respond_to do |format|
       if @problem.save
@@ -71,8 +72,6 @@ class ProblemsController < ApplicationController
       @comment = @problem.comments.build
 
     end
-
-
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params

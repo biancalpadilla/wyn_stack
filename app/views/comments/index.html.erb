@@ -5,11 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>User name</th>
-      <th>Body</th>
+      <th>Name</th>
+      <th>Comment</th>
       <th>Problem</th>
-      <th>Vote count</th>
-      <th>Answer</th>
+      <th>Votes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +20,6 @@
         <td><%= comment.body %></td>
         <td><%= comment.problem_id %></td>
         <td><%= comment.vote_count %></td>
-        <td><%= comment.answer %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

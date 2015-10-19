@@ -1,3 +1,8 @@
+<h1>Problem</h1>
+<br>
+<%= link_to 'Back to Problems', problems_path %>
+<br>
+<br>
 <p>
   <strong>Name:</strong>
   <%= @problem.name %>
@@ -8,25 +13,16 @@
   <%= @problem.title %>
 </p>
 
+
 <p>
   <strong>Description:</strong>
   <%= @problem.description %>
 </p>
 
-<p>
-  <strong>Vote count:</strong>
-  <%= @problem.vote_count %>
-</p>
+<%= (link_to 'Edit', edit_problem_path(@problem)) if current_user.id == @problem.user_id %>
+<%= (link_to 'Delete', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @problem.user_id %>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @problem.tags %>
-</p>
 
-<p>
-  <strong>Solved:</strong>
-  <%= @problem.solved %>
-</p>
 
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
@@ -34,10 +30,13 @@
     <strong><%= comment.user_name %></strong>
     <br />
     <p><%= comment.body %></p>
-    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
+    <%= (link_to 'Delete', @problem, method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
   </div>
 <% end %>
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
-<%= link_to 'Back', problems_path %>
+<br>
+<%= link_to 'Back to Problems', problems_path %>
+<br>
+

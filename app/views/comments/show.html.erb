@@ -1,27 +1,13 @@
 <p>
-  <strong>User name:</strong>
+  <strong>Name:</strong>
   <%= @comment.user_name %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Comment:</strong>
   <%= @comment.body %>
 </p>
 
-<p>
-  <strong>Problem:</strong>
-  <%= @comment.problem_id %>
-</p>
-
-<p>
-  <strong>Vote count:</strong>
-  <%= @comment.vote_count %>
-</p>
-
-<p>
-  <strong>Answer:</strong>
-  <%= @comment.answer %>
-</p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back', problem_path(@comment.problem_id) %>
