@@ -1,8 +1,6 @@
-body { padding-top: 100px;
+body { padding-top: 70px;
   font-family: Rajdhani, Helvetica, Arial, sans-serif;
   line-height: 16px;}
-
-
 
 .navbar-default .navbar-nav>li>a {
     color: #777;
@@ -33,6 +31,14 @@ body { padding-top: 100px;
     border-color: #999;
 }
 
+.panel-heading.new {
+    text-align: center;
+}
+
+.form {
+  text-align: center;
+}
+
 footer {
   margin-top: 100px;
   text-align: center;
@@ -44,9 +50,19 @@ div.button {
   padding-bottom: 10px;
 }
 
+div.form {
+  padding-left: 20px ;
+  padding-top: 10px;
+}
+
 div.container.page {
   padding-left: 200px ;
   padding-right: 200px;
+}
+
+div.container.new {
+  padding-left: 80px ;
+  padding-right: 600px;
 }
 
 div.question {
@@ -76,8 +92,7 @@ p.show {
   color: blue;
 }
 
-a {color: #51ACD1;}
-a:visited {}
+a { color: #51ACD1; font-size: 16px;}
 a:hover { color: black; }
 
 div.field, div.actions {

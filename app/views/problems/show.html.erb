@@ -1,28 +1,26 @@
 <body class="homepage">
 
     <div class="col-md-12 col-md-offset-4">
-      
+ <br>
+          <%= link_to 'Back to Problems', problems_path %>
+          <br>
+          <br>
       <div class="product-container">
 
         <div class="panel panel-info">
 
           <h1>Problem</h1>
-          <br>
-          <%= link_to 'Back to Problems', problems_path %>
-          <br>
-          <br>
-          <p>
-            <strong>Posted by:</strong>
-            <%= @problem.name %> -
-            <%= time_ago_in_words(@problem.created_at) %> ago
-          </p>
 
           <p>
+            <strong><%= @problem.name %></strong> asked <%= time_ago_in_words(@problem.created_at) %> ago
+          </p>
+
+          <p class="title">
             <strong>Title:</strong>
             <%= @problem.title %>
           </p>
 
-          <p>
+          <p class="description">
             <strong>Description:</strong>
             <%= @problem.description %>
           </p>
@@ -38,7 +36,7 @@
     </div>
 
     <div class="col-md-12 col-md-offset-4">
-      
+
       <div class="product-container">
 
         <div class="panel panel-primary">
@@ -49,7 +47,7 @@
             <div>
               <%= pluralize(comment.votes.count, "vote") %>
               <%= button_to '+1', upvote_comment_path(comment), method: :post %>
-              <strong><%= comment.user_name %></strong> -
+              <strong><%= comment.user_name %></strong> asked
               <%= time_ago_in_words(comment.created_at) %> Ago
               <br />
               <p><%= comment.body %></p>
@@ -60,13 +58,11 @@
           <%= render 'comments/form' %>
 
           <br>
-          <%= link_to 'Back to Problems', problems_path %>
           <br>
 
         </div>
 
       </div>
-
     </div>
 
 </body>

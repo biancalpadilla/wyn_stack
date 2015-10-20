@@ -1,21 +1,13 @@
-<body class="homepage">	
-
-	<div class="col-md-12 col-md-offset-4">
-	    
-	    <div class="product-container">
-
-	    	<div class="panel panel-info">
-
-				<h1>New Interview</h1>
-
+<body class="homepage">
+	<%= link_to 'Back', interviews_path, class: 'btn btn-lg btn-info' %>
+<br>
+<br>
+<div class="container page new">
+	<div class="panel panel-default">
+		<div class="panel-heading new"><h1>New Interview Question</h1></div>
+			<div class='form'>
 				<%= render 'form' %>
-
-				<%= link_to 'Back', interviews_path %>
-
 			</div>
-
 		</div>
-		
 	</div>
-
 </body>

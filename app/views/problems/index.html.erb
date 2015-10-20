@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'New Question', new_problem_path, class: 'btn btn-lg btn-info' %>
+<br>
+<br>
+<br>
 <div class="panel panel-default">
 
   <div class="panel-heading"><h1>General Questions</h1></div>
 
-<div class='button'>
-  <%= link_to 'New Question', new_problem_path, class: 'btn btn-info' %>
-</div>
 
   <div class='question'>
   <% @problems.each do |problem| %>
    <hr>
-    <p class='title'><%= problem.title %></p>
+    <p class='titlelink'><%= link_to problem.title, problem,  style: "font-size:25px;" %></p>
     <p class='description'><%= problem.description %></p>
     <p class='askedby'>Asked by <%= problem.name %> - <%= time_ago_in_words(problem.created_at) %> ago</p>
-    <p class='show'><%= link_to 'Show', problem %></p>
     <% end %>
   </div>
 </div>

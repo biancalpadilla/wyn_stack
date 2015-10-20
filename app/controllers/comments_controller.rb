@@ -11,11 +11,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    # @comments = Comment.all
-    redirect_to('/products')
-    # redirect_to('/problems') #if @comment.problems
-    # redirect_to('/interviews') if @comment.interview
-    # redirect_to('/resources') if @comment.resource
+    @comments = Comment.all
   end
 
   # GET /comments/1
@@ -55,7 +51,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to parent_url, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -66,10 +62,11 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
-  def destroy
+   def destroy
+    url = parent_url
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,6 +80,12 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:user_name, :body, :problem_id, :vote_count, :answer, :interview_id, :resource_id)
+    end
+
+    def parent_url
+      return problem_path(@comment.problem) if @comment.problem_id
+      return interview_path(@comment.interview) if @comment.interview_id
+      return resource_path(@comment.resource) if @comment.resource_id
     end
 
 end
