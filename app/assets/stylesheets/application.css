@@ -2,6 +2,10 @@ body { padding-top: 70px;
   font-family: Rajdhani, Helvetica, Arial, sans-serif;
   line-height: 16px;}
 
+div.field {
+  font-size: 16px;
+}
+
 .navbar-default .navbar-nav>li>a {
     color: #777;
     font-size: 18px;
@@ -25,6 +29,13 @@ body { padding-top: 70px;
     color: #777;
     background-color: #999;
     border-color: #999;
+}
+
+.panel-heading.question {
+    padding: 0px 0px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .panel-info {
@@ -97,6 +108,11 @@ a:hover { color: black; }
 
 div.field, div.actions {
   margin-bottom: 10px;
+}
+
+div.view {
+  font-size: 18px;
+  line-height: 30px;
 }
 
 #notice {

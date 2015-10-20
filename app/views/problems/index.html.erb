@@ -11,10 +11,11 @@
 
   <div class='question'>
   <% @problems.each do |problem| %>
-   <hr>
+  <br>
     <p class='titlelink'><%= link_to problem.title, problem,  style: "font-size:25px;" %></p>
     <p class='description'><%= problem.description %></p>
     <p class='askedby'>Asked by <%= problem.name %> - <%= time_ago_in_words(problem.created_at) %> ago</p>
+    <hr>
     <% end %>
   </div>
 </div>

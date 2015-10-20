@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Resource', new_resource_path, class: 'btn btn-lg btn-info' %>
+<%= link_to 'New Question', new_resource_path, class: 'btn btn-lg btn-info' %>
 <br>
 <br>
 <br>
@@ -10,10 +10,11 @@
 
   <div class='question'>
   <% @resources.each do |resource| %>
-   <hr>
+  <br>
     <p class='titlelink'><%= link_to resource.title, resource, style: "font-size:25px;" %></p>
     <p class='description'><%= resource.description %></p>
     <p class='askedby'>Asked by <%= resource.name %> - <%= time_ago_in_words(resource.created_at) %> ago</p>
+    <hr>
     <% end %>
   </div>
 

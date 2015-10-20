@@ -4,12 +4,12 @@
 <br>
 <br>
 
-  <div class="panel panel-default">
-    <div class="panel-heading"><h1><%= @interview.title %></h1></div>
+<!--   <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h1><%= @interview.title %></h3></div>
+    <hr>
     <div class='view'>
-    <p>
+
       <strong><%= @interview.name %></strong> asked <%= time_ago_in_words(@interview.created_at) %> ago:
-    </p>
     <p>
       <%= @interview.description %>
     </p>
@@ -21,8 +21,9 @@
   </div>
 
   <div class="container page">
-  <div class="panel panel-default">
-    <div class="panel-heading "><h1>Comments</h1></div>
+  <hr>
+  <!-- <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h2>Comments</h2></div>
       <div class='view'>
         <% @comments.each do |comment| %>
           <strong><%= comment.user_name %></strong> -

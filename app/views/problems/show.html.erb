@@ -1,66 +1,41 @@
 <body class="homepage">
+<%= link_to 'Back', problems_path, class: 'btn btn-lg btn-info' %>
+<br>
+<br>
+<br>
 
-    <div class="col-md-12 col-md-offset-4">
- <br>
-          <%= link_to 'Back to Problems', problems_path %>
-          <br>
-          <br>
-      <div class="product-container">
+<!--   <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h1><%= @problem.title %></h3></div>
+    <hr>
+    <div class='view'>
 
-        <div class="panel panel-info">
+      <strong><%= @problem.name %></strong> asked <%= time_ago_in_words(@problem.created_at) %> ago:
+    <p>
+      <%= @problem.description %>
+    </p>
 
-          <h1>Problem</h1>
-
-          <p>
-            <strong><%= @problem.name %></strong> asked <%= time_ago_in_words(@problem.created_at) %> ago
-          </p>
-
-          <p class="title">
-            <strong>Title:</strong>
-            <%= @problem.title %>
-          </p>
-
-          <p class="description">
-            <strong>Description:</strong>
-            <%= @problem.description %>
-          </p>
-
-
-          <%= (link_to 'Edit', edit_problem_path(@problem)) if current_user.id == @problem.user_id %>
-          <%= (link_to 'Delete', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @problem.user_id %>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="col-md-12 col-md-offset-4">
-
-      <div class="product-container">
-
-        <div class="panel panel-primary">
-
-
-          <h3>Comments</h3>
-          <% @comments.each do |comment| %>
-            <div>
-              <strong><%= comment.user_name %></strong> asked
-              <%= time_ago_in_words(comment.created_at) %> ago
-
-              <p><%= comment.body %></p>
-              <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
-              <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
-            </div>
-          <% end %>
-          <%= render 'comments/form' %>
-
-          <br>
-          <br>
-
-        </div>
-
+      <%= (link_to 'Edit', edit_problem_path(@problem)) if current_user.id == @problem.user_id %>
+      <%= (link_to 'Delete', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @problem.user_id %>
       </div>
     </div>
+  </div>
+
+  <div class="container page">
+  <hr>
+  <!-- <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h2>Comments</h2></div>
+      <div class='view'>
+        <% @comments.each do |comment| %>
+          <strong><%= comment.user_name %></strong> -
+          <%= time_ago_in_words(comment.created_at) %> ago
+          <p><%= comment.body %></p>
+          <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
+          <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+        <% end %>
+        <%= render 'comments/form' %>
+      </div>
+      </div>
+    </div>
+  </div>
 
 </body>
