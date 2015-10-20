@@ -4,7 +4,11 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    # @comments = Comment.all
+    redirect_to('/products')
+    # redirect_to('/problems') #if @comment.problems
+    # redirect_to('/interviews') if @comment.interview
+    # redirect_to('/resources') if @comment.resource
   end
 
   # GET /comments/1
@@ -19,7 +23,6 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-
   end
 
   # POST /comments
@@ -74,4 +77,5 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:user_name, :body, :problem_id, :vote_count, :answer, :interview_id, :resource_id)
     end
+
 end

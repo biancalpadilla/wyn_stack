@@ -2,7 +2,41 @@ body { padding-top: 100px;
   font-family: Rajdhani, Helvetica, Arial, sans-serif;
   line-height: 16px;}
 
-footer { margin-top: 100px; }
+
+
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    font-size: 18px;
+}
+.navbar-brand, .navbar-nav>li>a {
+    text-shadow: 0 1px 0 rgba(255,255,255,.25);
+    font-size: 28px;
+}
+
+.navbar-default .navbar-link {
+    color: #777;
+    font-size: 16px;
+}
+
+.navbar-default .navbar-text {
+    color: #51ACD1;
+    font-size: 16px;
+}
+
+.panel-info>.panel-heading {
+    color: #777;
+    background-color: #999;
+    border-color: #999;
+}
+
+.panel-info {
+    border-color: #999;
+}
+
+footer {
+  margin-top: 100px;
+  text-align: center;
+}
 
 div.button {
   padding-top: 30px;
@@ -42,8 +76,8 @@ p.show {
   color: blue;
 }
 
-a { color: gray; }
-a:visited { color: #666; }
+a {color: #51ACD1;}
+a:visited {}
 a:hover { color: black; }
 
 div.field, div.actions {
@@ -51,7 +85,7 @@ div.field, div.actions {
 }
 
 #notice {
-  color: green;
+  color: white;
 }
 
 .field_with_errors {
@@ -73,7 +107,7 @@ div.field, div.actions {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
-  font-size: 12px;
+  font-size: 14px;
   margin: -7px;
   margin-bottom: 0px;
   background-color: #c00;
@@ -81,6 +115,15 @@ div.field, div.actions {
 }
 
 #error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
+  font-size: 14px;
+  color: gray;
+  padding-top: 6px;
 }
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: white;
+  }
