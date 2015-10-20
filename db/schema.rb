@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019231106) do
+ActiveRecord::Schema.define(version: 20151020012710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151019231106) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.integer  "interview_id"
+    t.integer  "resource_id"
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -51,6 +52,17 @@ ActiveRecord::Schema.define(version: 20151019231106) do
     t.integer  "user_id"
   end
 
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "resources", ["user_id"], name: "index_resources_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -72,4 +84,5 @@ ActiveRecord::Schema.define(version: 20151019231106) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "interviews", "users"
+  add_foreign_key "resources", "users"
 end

@@ -1,0 +1,42 @@
+<h1>Resources</h1>
+<br>
+<%= link_to 'Back to Resources', resources_path %>
+<br>
+<br>
+<p>
+  <strong>Posted by:</strong>
+  <%= @resource.name %> -
+  <%= time_ago_in_words(@resource.created_at) %> ago
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @resource.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @resource.description %>
+</p>
+
+<%= (link_to 'Edit', edit_resource_path(@resource)) if current_user.id == @resource.user_id %>
+<%= (link_to 'Delete', resource_path(@resource), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @resource.user_id %>
+
+
+
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+  <div>
+    <strong><%= comment.user_name %></strong> -
+    <%= time_ago_in_words(comment.created_at) %> Ago
+    <br />
+    <p><%= comment.body %></p>
+    <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
+    <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+  </div>
+<% end %>
+<%= render 'comments/form' %>
+
+<br>
+<%= link_to 'Back to Resources', resources_path %>
+<br>

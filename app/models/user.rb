@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :problems
   has_many :interview
+  has_many :resources
 
 end
