@@ -1,6 +1,12 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
 
+  def upvote
+    @Problem = Problem.find(params[:id])
+    @Problem.votes.create
+    redirect_to(Problems_path)
+  end
+
   # GET /problems
   # GET /problems.json
   def index
@@ -69,6 +75,13 @@ class ProblemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_problem
       @problem = Problem.find(params[:id])
+
+
+      @comments = @problem.comments.sort_by(&:vote_count).reverse
+      # ordered_comments = Comment.joins(:vote).order('@comment.votes.count')
+      @comment = @problem.comments.build
+      # Comment.includes(:comment).order("comments.sort_order")
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
