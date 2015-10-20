@@ -10,6 +10,8 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   # GET /resources/1.json
   def show
+    @comments = @resource.comments.all
+    @comment = @resource.comments.new
   end
 
   # GET /resources/new
@@ -67,9 +69,6 @@ class ResourcesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
       @resource = Resource.find(params[:id])
-
-      @comments = @resource.comments.all
-      @comment = @resource.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

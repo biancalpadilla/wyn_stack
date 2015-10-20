@@ -1,21 +1,12 @@
-<body class="homepage">	
+<body class="homepage">
+	<%= link_to 'Back', resources_path, class: 'btn btn-lg btn-info' %>
 
-	<div class="col-md-12 col-md-offset-4">
-	    
-	    <div class="product-container">
-
-	    	<div class="panel panel-info">
-
-				<h1>New Resource</h1>
-
+<div class="container page new">
+	<div class="panel panel-default">
+		<div class="panel-heading new"><h1>New Coding Resource</h1></div>
+			<div class='form'>
 				<%= render 'form' %>
-
-				<%= link_to 'Back', resources_path %>
-
 			</div>
-
 		</div>
-		
 	</div>
-
 </body>

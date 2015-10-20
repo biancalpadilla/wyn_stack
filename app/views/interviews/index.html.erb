@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= link_to 'New Question', new_interview_path, class: 'btn btn-lg btn-info' %>
+  <br>
+  <br>
+  <br>
+
 <div class="panel panel-default">
 
   <div class="panel-heading"><h1>Interview Questions</h1></div>
 
-  <div class='button'>
-  <%= link_to 'New Question', new_interview_path, class: 'btn btn-info' %>
-  </div>
-
   <div class='question'>
   <% @interviews.each do |interview| %>
    <hr>
-    <p class='title'><%= interview.title %></p>
+    <p class='titlelink'><%= link_to interview.title, interview,  style: "font-size:25px;" %></p>
     <p class='description'><%= interview.description %></p>
     <p class='askedby'>Asked by <%= interview.name %> - <%= time_ago_in_words(interview.created_at) %> ago</p>
-    <p class='show'><%= link_to 'Show', interview %></p>
     <% end %>
   </div>
 

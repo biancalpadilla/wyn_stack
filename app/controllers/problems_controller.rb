@@ -10,6 +10,8 @@ class ProblemsController < ApplicationController
   # GET /problems/1
   # GET /problems/1.json
   def show
+    @comments = @problem.comments.all
+    @comment = @problem.comments.new
   end
 
   # GET /problems/new
@@ -67,10 +69,6 @@ class ProblemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_problem
       @problem = Problem.find(params[:id])
-
-      @comments = @problem.comments.all
-      @comment = @problem.comments.build
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -10,6 +10,8 @@ class InterviewsController < ApplicationController
   # GET /interviews/1
   # GET /interviews/1.json
   def show
+    @comments = @interview.comments.all
+    @comment = @interview.comments.new
   end
 
   # GET /interviews/new
@@ -67,9 +69,6 @@ class InterviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_interview
       @interview = Interview.find(params[:id])
-
-      @comments = @interview.comments.all
-      @comment = @interview.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
