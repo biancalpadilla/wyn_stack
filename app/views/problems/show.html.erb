@@ -4,19 +4,15 @@
 <br>
 <br>
 <p>
-  <strong>Name:</strong>
-  <%= @problem.name %>
-</p>
-<p>
-  <strong>Created at:</strong>
-  <%= time_ago_in_words(@problem.created_at) %>
+  <strong>Posted by:</strong>
+  <%= @problem.name %> -
+  <%= time_ago_in_words(@problem.created_at) %> ago
 </p>
 
 <p>
   <strong>Title:</strong>
   <%= @problem.title %>
 </p>
-
 
 <p>
   <strong>Description:</strong>

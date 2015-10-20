@@ -25,6 +25,8 @@ class InterviewsController < ApplicationController
   # POST /interviews.json
   def create
     @interview = Interview.new(interview_params)
+    @interview.user_id = current_user.id
+    @interview.name = current_user.first_name
 
     respond_to do |format|
       if @interview.save
@@ -65,6 +67,9 @@ class InterviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_interview
       @interview = Interview.find(params[:id])
+
+      @comments = @interview.comments.all
+      @comment = @interview.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

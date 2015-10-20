@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :interviews
   devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :interviews
   resources :comments
   resources :problems
   root :to => redirect('/problems')
