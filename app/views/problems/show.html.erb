@@ -1,44 +1,70 @@
-<h1>Problem</h1>
-<br>
-<%= link_to 'Back to Problems', problems_path %>
-<br>
-<br>
-<p>
-  <strong>Posted by:</strong>
-  <%= @problem.name %> -
-  <%= time_ago_in_words(@problem.created_at) %> ago
-</p>
+<body class="homepage">
 
-<p>
-  <strong>Title:</strong>
-  <%= @problem.title %>
-</p>
+    <div class="col-md-12 col-md-offset-4">
+      
+      <div class="product-container">
 
-<p>
-  <strong>Description:</strong>
-  <%= @problem.description %>
-</p>
+        <div class="panel panel-info">
+
+          <h1>Problem</h1>
+          <br>
+          <%= link_to 'Back to Problems', problems_path %>
+          <br>
+          <br>
+          <p>
+            <strong>Posted by:</strong>
+            <%= @problem.name %> -
+            <%= time_ago_in_words(@problem.created_at) %> ago
+          </p>
+
+          <p>
+            <strong>Title:</strong>
+            <%= @problem.title %>
+          </p>
+
+          <p>
+            <strong>Description:</strong>
+            <%= @problem.description %>
+          </p>
 
 
-<%= (link_to 'Edit', edit_problem_path(@problem)) if current_user.id == @problem.user_id %>
-<%= (link_to 'Delete', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @problem.user_id %>
+          <%= (link_to 'Edit', edit_problem_path(@problem)) if current_user.id == @problem.user_id %>
+          <%= (link_to 'Delete', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @problem.user_id %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-12 col-md-offset-4">
+      
+      <div class="product-container">
+
+        <div class="panel panel-primary">
 
 
+          <h3>Comments</h3>
+          <% @comments.each do |comment| %>
+            <div>
+              <strong><%= comment.user_name %></strong> -
+              <%= time_ago_in_words(comment.created_at) %> Ago
+              <br />
+              <p><%= comment.body %></p>
+              <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
+              <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+            </div>
+          <% end %>
+          <%= render 'comments/form' %>
 
-<h3>Comments</h3>
-<% @comments.each do |comment| %>
-  <div>
-    <strong><%= comment.user_name %></strong> -
-    <%= time_ago_in_words(comment.created_at) %> Ago
-    <br />
-    <p><%= comment.body %></p>
-    <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
-    <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
-  </div>
-<% end %>
-<%= render 'comments/form' %>
+          <br>
+          <%= link_to 'Back to Problems', problems_path %>
+          <br>
 
-<br>
-<%= link_to 'Back to Problems', problems_path %>
-<br>
+        </div>
 
+      </div>
+
+    </div>
+
+</body>

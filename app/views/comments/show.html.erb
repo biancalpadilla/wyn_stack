@@ -1,13 +1,29 @@
-<p>
-  <strong>Name:</strong>
-  <%= @comment.user_name %>
-</p>
+<body class="homepage">
 
-<p>
-  <strong>Comment:</strong>
-  <%= @comment.body %>
-</p>
+    <div class="col-md-12 col-md-offset-4">
+      
+      <div class="product-container">
+
+        <div class="panel panel-info">
+
+			<p>
+			  <strong>Name:</strong>
+			  <%= @comment.user_name %>
+			</p>
+
+			<p>
+			  <strong>Comment:</strong>
+			  <%= @comment.body %>
+			</p>
 
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', problem_path(@comment.problem_id) %>
+			<%= link_to 'Edit', edit_comment_path(@comment) %> |
+			<%= link_to 'Back', problem_path(@comment.problem_id) %>
+
+		</div>
+
+      </div>
+
+    </div>
+
+</body>

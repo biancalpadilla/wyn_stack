@@ -1,38 +1,64 @@
-<p id="notice"><%= notice %></p>
+<body class="homepage">
 
-<p>
-  <strong>Posted by:</strong>
-  <%= @interview.name %> -
-  <%= time_ago_in_words(@interview.created_at) %> ago
-</p>
+    <div class="col-md-12 col-md-offset-4">
+      
+      <div class="product-container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @interview.title %>
-</p>
+        <div class="panel panel-info">
 
-<p>
-  <strong>Description:</strong>
-  <%= @interview.description %>
-</p>
+          <p>
+            <strong>Posted by:</strong>
+            <%= @interview.name %> -
+            <%= time_ago_in_words(@interview.created_at) %> ago
+          </p>
+
+          <p>
+            <strong>Title:</strong>
+            <%= @interview.title %>
+          </p>
+
+          <p>
+            <strong>Description:</strong>
+            <%= @interview.description %>
+          </p>
 
 
-<%= (link_to 'Edit', edit_interview_path(@interview)) if current_user.id == @interview.user_id %>
-<%= (link_to 'Delete', interviews_path(@interview), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @interview.user_id %>
+          <%= (link_to 'Edit', edit_interview_path(@interview)) if current_user.id == @interview.user_id %>
+          <%= (link_to 'Delete', interviews_path(@interview), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @interview.user_id %>
 
-<h3>Comments</h3>
-<% @comments.each do |comment| %>
-  <div>
-    <strong><%= comment.user_name %></strong> -
-    <%= time_ago_in_words(comment.created_at) %> ago
-    <br />
-    <p><%= comment.body %></p>
-    <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
-    <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
-  </div>
-<% end %>
-<%= render 'comments/form' %>
+        </div>
 
-<br>
-<%= link_to 'Back to Interview', interviews_path %>
-<br>
+      </div>
+
+    </div>
+
+    <div class="col-md-12 col-md-offset-4">
+      
+      <div class="product-container">
+
+        <div class="panel panel-primary">
+
+          <h3>Comments</h3>
+          <% @comments.each do |comment| %>
+            <div>
+              <strong><%= comment.user_name %></strong> -
+              <%= time_ago_in_words(comment.created_at) %> ago
+              <br />
+              <p><%= comment.body %></p>
+              <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
+              <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+            </div>
+          <% end %>
+          <%= render 'comments/form' %>
+
+          <br>
+          <%= link_to 'Back to Interview', interviews_path %>
+          <br>
+
+        </div>
+
+      </div>
+
+    </div>
+
+</body>

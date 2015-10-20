@@ -1,38 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Interview Questions</h1>
+<div class="panel panel-info">
 
-<br>
+  <div class="panel-heading"><h1>Interview Questions</h1></div>
 
-<%= link_to 'New Question', new_interview_path %>
-<br>
-<br>
+  <br>
+  <%= link_to 'New Question', new_interview_path, class: 'btn btn-info' %>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Asked</th>
-      <th>By</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @interviews.each do |interview| %>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= interview.title %></td>
-        <td><%= interview.description %></td>
-        <td><%= time_ago_in_words(interview.created_at) %></td>
-        <td><%= interview.name %></td>
-        <td><%= link_to 'Show', interview %></td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Asked</th>
+        <th>By</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @interviews.each do |interview| %>
+        <tr>
+          <td><%= interview.title %></td>
+          <td><%= interview.description %></td>
+          <td><%= time_ago_in_words(interview.created_at) %></td>
+          <td><%= interview.name %></td>
+          <td><%= link_to 'Show', interview %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Question', new_interview_path %>
+  <br>
+  <%= link_to 'New Question', new_interview_path, class: 'btn btn-info' %>
+  <br>
+  <br>
+</div>

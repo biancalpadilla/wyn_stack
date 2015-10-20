@@ -1,33 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Coding Resources</h1>
+<div class="panel panel-info">
 
-<%= link_to 'New Resource', new_resource_path %>
+  <div class="panel-heading"><h1>Coding Resources</h1></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Asked</th>
-      <th>By</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <br>
+  <%= link_to 'New Resource', new_resource_path, class: 'btn btn-info' %>
 
-  <tbody>
-    <% @resources.each do |resource| %>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= resource.title %></td>
-        <td><%= resource.description %></td>
-        <td><%= time_ago_in_words(resource.created_at) %></td>
-        <td><%= resource.name %></td>
-        <td><%= link_to 'Show', resource %></td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Asked</th>
+        <th>By</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @resources.each do |resource| %>
+        <tr>
+          <td><%= resource.title %></td>
+          <td><%= resource.description %></td>
+          <td><%= time_ago_in_words(resource.created_at) %></td>
+          <td><%= resource.name %></td>
+          <td><%= link_to 'Show', resource %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Resource', new_resource_path %>
+  <br>
+  <%= link_to 'New Resource', new_resource_path, class: 'btn btn-info' %>
+  <br>
+  <br>
+</div>
