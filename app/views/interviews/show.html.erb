@@ -1,7 +1,7 @@
 <body class="homepage">
 
     <div class="col-md-12 col-md-offset-4">
-      
+
       <div class="product-container">
 
         <div class="panel panel-info">
@@ -24,7 +24,7 @@
 
 
           <%= (link_to 'Edit', edit_interview_path(@interview)) if current_user.id == @interview.user_id %>
-          <%= (link_to 'Delete', interviews_path(@interview), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @interview.user_id %>
+          <%= (link_to 'Delete', interview_path(@interview), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @interview.user_id %>
 
         </div>
 
@@ -33,7 +33,7 @@
     </div>
 
     <div class="col-md-12 col-md-offset-4">
-      
+
       <div class="product-container">
 
         <div class="panel panel-primary">

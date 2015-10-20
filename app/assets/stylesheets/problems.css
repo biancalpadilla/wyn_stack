@@ -2,16 +2,3 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-
-.panel-info{
-	margin-top: 50px;
-	margin-left: 100px;
-	max-width: 75%
-}
-
-.product-container{
-	margin-top: 100px;
-	border: solid;
-	max-width: 25%;
-	background: #CACAD0;
-}

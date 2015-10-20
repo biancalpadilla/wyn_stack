@@ -1,20 +1,86 @@
-body { padding-top: 100px; }
-footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; }
+body { padding-top: 100px;
+  font-family: Rajdhani, Helvetica, Arial, sans-serif;
+  line-height: 16px;}
 
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+footer { margin-top: 100px; }
+
+div.button {
+  padding-top: 30px;
+  padding-left: 25px;
+  padding-bottom: 10px;
+}
+
+div.container.page {
+  padding-left: 200px ;
+  padding-right: 200px;
+}
+
+div.question {
+padding-left: 25px;
+padding-right: 25px;
+}
+
+p.title {
+  color: #4d4d4d;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+p.description {
+  color: #585858;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+p.askedby {
+  color: #585858;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+p.show {
+  color: blue;
+}
+
+a { color: gray; }
+a:visited { color: #666; }
+a:hover { color: black; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

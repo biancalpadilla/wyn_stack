@@ -2,15 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-.panel-info{
-	margin-top: 50px;
-	margin-left: 100px;
-	max-width: 75%
-}
-
-.product-container{
-	margin-top: 100px;
-	border: solid;
-	max-width: 25%;
-	background: #CACAD0;
-}
