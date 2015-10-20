@@ -2,7 +2,7 @@
 
     <div class="col-md-12 col-md-offset-4">
  <br>
-          <%= link_to 'Back to Problems', problems_path %>
+          <%= link_to '', problems_path, class: 'glyphicon glyphicon-chevron-left', style: "font-size:28px;" %>
           <br>
           <br>
       <div class="product-container">
@@ -26,8 +26,8 @@
           </p>
 
 
-          <%= (link_to 'Edit', edit_problem_path(@problem)) if current_user.id == @problem.user_id %>
-          <%= (link_to 'Delete', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @problem.user_id %>
+          <%= (link_to '', edit_problem_path(@problem), class: 'glyphicon glyphicon-edit' ) if current_user.id == @problem.user_id %>
+          <%= (link_to '', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash', style: "font-size:14px;" ) if current_user.id == @problem.user_id %>
 
         </div>
 
@@ -49,8 +49,8 @@
               <%= time_ago_in_words(comment.created_at) %> ago
 
               <p><%= comment.body %></p>
-              <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
-              <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+              <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit') if current_user.id == comment.user_id %>
+              <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
             </div>
           <% end %>
           <%= render 'comments/form' %>

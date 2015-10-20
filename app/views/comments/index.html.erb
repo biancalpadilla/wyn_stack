@@ -20,8 +20,8 @@
         <td><%= comment.problem_id %></td>
         <td><%= comment.vote_count %></td>
         <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit' %></td>
+        <td><%= link_to '', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %></td>
       </tr>
     <% end %>
   </tbody>

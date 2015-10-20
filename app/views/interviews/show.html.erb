@@ -1,5 +1,5 @@
 <body class="homepage">
-<%= link_to 'Back', interviews_path, class: 'btn btn-lg btn-info' %>
+<%= link_to '', interviews_path, class: 'glyphicon glyphicon-chevron-left', style: "font-size:28px;" %>
 <br>
 <br>
 <br>
@@ -14,8 +14,8 @@
       <%= @interview.description %>
     </p>
 
-      <%= (link_to 'Edit', edit_interview_path(@interview)) if current_user.id == @interview.user_id %>
-      <%= (link_to 'Delete', interview_path(@interview), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @interview.user_id %>
+      <%= (link_to '', edit_interview_path(@interview), class: 'glyphicon glyphicon-edit' ) if current_user.id == @interview.user_id %>
+      <%= (link_to '', interview_path(@interview), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == @interview.user_id %>
       </div>
     </div>
   </div>
@@ -28,8 +28,8 @@
           <strong><%= comment.user_name %></strong> -
           <%= time_ago_in_words(comment.created_at) %> ago
           <p><%= comment.body %></p>
-          <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
-          <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+          <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit') if current_user.id == comment.user_id %>
+          <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
         <% end %>
         <%= render 'comments/form' %>
       </div>
