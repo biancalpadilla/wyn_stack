@@ -1,17 +1,14 @@
 <body class="homepage">
-
-	    <div class="product-container">
-
-	    	<div class="panel panel-info">
-
-				<h1>New Comment</h1>
-
-				<%= render 'form' %>
-
-				<%= link_to 'Back', problem_path(@comment.problem_id)  %>
-
-			</div>
-
-		</div>
-
+  <%= link_to 'Back', problem_path(@comment.problem_id), class: 'btn btn-lg btn-info' %>
+<br>
+<br>
+<div class="container page new">
+  <div class="panel panel-default">
+    <div class="panel-heading new"><h1>New Problem</h1></div>
+      <div class='form'>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
 </body>
+

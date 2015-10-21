@@ -1,29 +1,23 @@
 <body class="homepage">
+  <%= link_to 'Back', problem_path(@comment.problem_id), class: 'btn btn-lg btn-info' %>
+<br>
+<br>
+<div class="container page new">
+  <div class="panel panel-default">
+    <div class="panel-heading new"><h1>New Comment</h1></div>
+      <div class='form'>
+        <p>
+        <strong>Name:</strong>
+        <%= @comment.user_name %>
+      </p>
+      <p>
+        <strong>Comment:</strong>
+        <%= @comment.body %>
+      </p>
 
-    <div class="col-md-12 col-md-offset-4">
-
-      <div class="product-container">
-
-        <div class="panel panel-info">
-
-			<p>
-			  <strong>Name:</strong>
-			  <%= @comment.user_name %>
-			</p>
-
-			<p>
-			  <strong>Comment:</strong>
-			  <%= @comment.body %>
-			</p>
-
-
-			<%= link_to 'Edit', edit_comment_path(@comment) %> |
-			<%= link_to 'Back', commentable_path(@comment) %>
-
-		</div>
+      <%= link_to 'Edit', edit_comment_path(@comment) %>
 
       </div>
-
     </div>
-
+  </div>
 </body>
