@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :resources
-  resources :interviews
+  resources :resources do
+    member do
+      post 'upvote'
+    end
+  end
+
+  resources :interviews do
+    member do
+      post 'upvote'
+    end
+  end
   
   resources :comments do
     member do
