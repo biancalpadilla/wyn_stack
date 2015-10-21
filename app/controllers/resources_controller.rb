@@ -1,6 +1,13 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
+  def upvote
+    @resource = Resource.find(params[:id])
+    @resource.votes.create
+    redirect_to(resources_path)
+    # redirect_to :back  
+  end
+
   # GET /resources
   # GET /resources.json
   def index
@@ -11,6 +18,8 @@ class ResourcesController < ApplicationController
   # GET /resources/1.json
   def show
     @comments = @resource.comments.all
+    @sorted_comments = @comments.sort { |a, b| b.votes.length <=> a.votes.length }
+    
     @comment = @resource.comments.new
   end
 
@@ -69,6 +78,10 @@ class ResourcesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
       @resource = Resource.find(params[:id])
+
+      @comments = @resource.comments.sort_by(&:vote_count).reverse
+
+      @comment = @resource.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

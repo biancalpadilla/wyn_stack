@@ -1,6 +1,13 @@
 class InterviewsController < ApplicationController
   before_action :set_interview, only: [:show, :edit, :update, :destroy]
 
+  def upvote
+    @interview = Interview.find(params[:id])
+    @interview.votes.create
+    redirect_to(interviews_path)
+    # redirect_to :back  
+  end
+
   # GET /interviews
   # GET /interviews.json
   def index
@@ -11,6 +18,8 @@ class InterviewsController < ApplicationController
   # GET /interviews/1.json
   def show
     @comments = @interview.comments.all
+    @sorted_comments = @comments.sort { |a, b| b.votes.length <=> a.votes.length }
+    
     @comment = @interview.comments.new
   end
 
@@ -69,6 +78,10 @@ class InterviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_interview
       @interview = Interview.find(params[:id])
+
+      @comments = @interview.comments.sort_by(&:vote_count).reverse
+
+      @comment = @interview.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

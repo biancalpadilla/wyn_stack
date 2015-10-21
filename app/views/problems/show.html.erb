@@ -43,7 +43,7 @@
 
 
           <h3>Comments</h3>
-          <% @comments.each do |comment| %>
+          <% @sorted_comments.each do |comment| %>
             <div>
               <%= pluralize(comment.votes.count, "vote") %>
               <%= button_to '+1', upvote_comment_path(comment), method: :post %>

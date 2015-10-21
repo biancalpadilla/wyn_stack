@@ -2,8 +2,8 @@ class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
 
   def upvote
-    @Problem = Problem.find(params[:id])
-    @Problem.votes.create
+    @problem = Problem.find(params[:id])
+    @problem.votes.create
     redirect_to(Problems_path)
   end
 
@@ -17,6 +17,8 @@ class ProblemsController < ApplicationController
   # GET /problems/1.json
   def show
     @comments = @problem.comments.all
+    @sorted_comments = @comments.sort { |a, b| b.votes.length <=> a.votes.length }
+
     @comment = @problem.comments.new
   end
 
@@ -76,12 +78,9 @@ class ProblemsController < ApplicationController
     def set_problem
       @problem = Problem.find(params[:id])
 
-
       @comments = @problem.comments.sort_by(&:vote_count).reverse
-      # ordered_comments = Comment.joins(:vote).order('@comment.votes.count')
+  
       @comment = @problem.comments.build
-      # Comment.includes(:comment).order("comments.sort_order")
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
