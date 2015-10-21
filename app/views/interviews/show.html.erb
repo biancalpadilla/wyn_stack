@@ -25,8 +25,6 @@
     <div class="panel-heading question"><h2>Comments</h2></div>
       <div class='view comment'>
         <% @comments.each do |comment| %>
-          <%= pluralize(comment.votes.count, "vote") %>
-          <%= button_to '+1', upvote_comment_path(comment), method: :post %>
           <strong><%= comment.user_name %></strong> -
           <%= time_ago_in_words(comment.created_at) %> ago
           <p><%= comment.body %></p>
