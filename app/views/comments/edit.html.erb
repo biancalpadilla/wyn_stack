@@ -1,6 +1,15 @@
-<h1>Editing Comment</h1>
 
-<%= render 'form' %>
-
-<%= link_to '', commentable_path(@comment), class: 'glyphicon glyphicon-chevron-left' %>
+<body class="homepage">
+  <%= link_to '', commentable_path(@comment), class: 'glyphicon glyphicon-chevron-left' %>
+<br>
+<br>
+<div class="container page new">
+  <div class="panel panel-default">
+    <div class="panel-heading new"><h1>Edit Comment</h1></div>
+      <div class='form'>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</body>
 

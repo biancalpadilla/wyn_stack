@@ -12,10 +12,11 @@
 
   <div class='question'>
   <% @interviews.each do |interview| %>
-   <hr>
+  <br>
     <p class='titlelink'><%= link_to interview.title, interview,  style: "font-size:25px;" %></p>
     <p class='description'><%= interview.description %></p>
     <p class='askedby'>Asked by <%= interview.name %> - <%= time_ago_in_words(interview.created_at) %> ago</p>
+    <hr>
     <% end %>
   </div>
 

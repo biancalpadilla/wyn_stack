@@ -1,66 +1,44 @@
 <body class="homepage">
 
-    <div class="col-md-12 col-md-offset-4">
- <br>
-          <%= link_to '', problems_path, class: 'glyphicon glyphicon-chevron-left', style: "font-size:28px;" %>
-          <br>
-          <br>
-      <div class="product-container">
+<%= link_to '', problems_path, class: 'glyphicon glyphicon-chevron-left', style: "font-size:28px;" %>
+<br>
+<br>
+<br>
 
-        <div class="panel panel-info">
+<!--   <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h1><%= @problem.title %></h3></div>
+    <hr>
+    <div class='view'>
 
-          <h1>Problem</h1>
+      <strong><%= @problem.name %></strong> asked <%= time_ago_in_words(@problem.created_at) %> ago:
+    <p>
+      <%= @problem.description %>
+    </p>
 
-          <p>
-            <strong><%= @problem.name %></strong> asked <%= time_ago_in_words(@problem.created_at) %> ago
-          </p>
-
-          <p class="title">
-            <strong>Title:</strong>
-            <%= @problem.title %>
-          </p>
-
-          <p class="description">
-            <strong>Description:</strong>
-            <%= @problem.description %>
-          </p>
-
-
-          <%= (link_to '', edit_problem_path(@problem), class: 'glyphicon glyphicon-edit' ) if current_user.id == @problem.user_id %>
-          <%= (link_to '', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash', style: "font-size:14px;" ) if current_user.id == @problem.user_id %>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="col-md-12 col-md-offset-4">
-
-      <div class="product-container">
-
-        <div class="panel panel-primary">
-
-
-          <h3>Comments</h3>
-          <% @comments.each do |comment| %>
-            <div>
-              <strong><%= comment.user_name %></strong> asked
-              <%= time_ago_in_words(comment.created_at) %> ago
-
-              <p><%= comment.body %></p>
-              <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit') if current_user.id == comment.user_id %>
-              <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
-            </div>
-          <% end %>
-          <%= render 'comments/form' %>
-
-          <br>
-          <br>
-
-        </div>
+      <%= (link_to '', edit_problem_path(@problem), class: 'glyphicon glyphicon-edit' ) if current_user.id == @problem.user_id %>
+      <%= (link_to '', problem_path(@problem), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash', style: "font-size:14px;" ) if current_user.id == @problem.user_id %>
 
       </div>
     </div>
+
+  <div class="container page">
+  <hr>
+  <!-- <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h2>Comments</h2></div>
+      <div class='view'>
+        <% @comments.each do |comment| %>
+            <%= pluralize(comment.votes.count, "vote") %>
+            <%= button_to '+1', upvote_comment_path(comment), method: :post %>
+          <strong><%= comment.user_name %></strong> -
+          <%= time_ago_in_words(comment.created_at) %> ago
+          <p><%= comment.body %></p>
+          <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit') if current_user.id == comment.user_id %>
+          <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
+        <% end %>
+        <%= render 'comments/form' %>
+        </div>
+      </div>
+    </div>
+
 
 </body>

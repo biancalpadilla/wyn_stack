@@ -1,65 +1,44 @@
 <body class="homepage">
 
-    <div class="col-md-12 col-md-offset-4">
+<br>
+<br>
+<br>
+    <div class='view'>
+    <div class="panel-heading question"><h1><%= @resource.title %></h3></div>
+    <hr>
+    <div class='view'>
 
-           <br>
-      <%= link_to '', resources_path, class: 'glyphicon glyphicon-chevron-left', style: "font-size:28px;" %>
-      <br>
-      <br>
+      <strong><%= @resource.name %></strong> asked <%= time_ago_in_words(@resource.created_at) %> ago:
+    <p>
+      <%= @resource.description %>
+    </p>
 
-      <div class="product-container">
 
-        <div class="panel panel-info">
-
-          <h1>Resources</h1>
-
-          <p>
-            <strong>Posted by:</strong>
-            <%= @resource.name %> -
-            <%= time_ago_in_words(@resource.created_at) %> ago
-          </p>
-
-          <p>
-            <strong>Title:</strong>
-            <%= @resource.title %>
-          </p>
-
-          <p>
-            <strong>Description:</strong>
-            <%= @resource.description %>
-          </p>
-
-          <%= (link_to '', edit_resource_path(@resource), class: 'glyphicon glyphicon-edit', style: "font-size:14px;" ) if current_user.id == @resource.user_id %>
+      <%= (link_to '', edit_resource_path(@resource), class: 'glyphicon glyphicon-edit', style: "font-size:14px;" ) if current_user.id == @resource.user_id %>
+      </div>
           <%= (link_to '', resource_path(@resource), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == @resource.user_id %>
-
-        </div>
-
-      </div>
-
     </div>
 
-    <div class="col-md-12 col-md-offset-4">
 
-      <div class="product-container">
+  </div>
 
-        <div class="panel panel-primary">
 
-          <h3>Comments</h3>
-          <% @comments.each do |comment| %>
-            <div>
-              <strong><%= comment.user_name %></strong> - <%= time_ago_in_words(comment.created_at) %> Ago
-              <p><%= comment.body %></p>
-              <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit' ) if current_user.id == comment.user_id %>
+  <div class="container page">
+  <hr>
+  <!-- <div class="panel panel-default"> -->
+    <div class="panel-heading question"><h2>Comments</h2></div>
+      <div class='view'>
+        <% @comments.each do |comment| %>
+          <strong><%= comment.user_name %></strong> -
+          <%= time_ago_in_words(comment.created_at) %> ago
+          <p><%= comment.body %></p>
+          <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit' ) if current_user.id == comment.user_id %>
               <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
-            </div>
-          <% end %>
-          <%= render 'comments/form' %>
-
-
-        </div>
-
+        <% end %>
+        <%= render 'comments/form' %>
       </div>
-
+      </div>
     </div>
+  </div>
 
 </body>
