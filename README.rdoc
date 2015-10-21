@@ -15,5 +15,3 @@ Ruby version: 2.2.3
 Rails 4.2.4, 4.2.3
 Devise 3.5.4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
