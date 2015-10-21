@@ -25,15 +25,17 @@
   <hr>
   <!-- <div class="panel panel-default"> -->
     <div class="panel-heading question"><h2>Comments</h2></div>
-      <div class='view'>
+      <div class='view comment'>
         <% @comments.each do |comment| %>
             <%= pluralize(comment.votes.count, "vote") %>
             <%= button_to '+1', upvote_comment_path(comment), method: :post %>
           <strong><%= comment.user_name %></strong> -
           <%= time_ago_in_words(comment.created_at) %> ago
           <p><%= comment.body %></p>
+          <%= link_to '', upvote_comment_path(comment), method: :post, class: 'glyphicon glyphicon-thumbs-up' %><br><br>
           <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit') if current_user.id == comment.user_id %>
           <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
+          <hr>
         <% end %>
         <%= render 'comments/form' %>
         </div>
