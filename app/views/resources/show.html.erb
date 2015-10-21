@@ -1,5 +1,5 @@
 <body class="homepage">
-<%= link_to 'Back', resources_path, class: 'btn btn-lg btn-info' %>
+
 <br>
 <br>
 <br>
@@ -13,10 +13,13 @@
       <%= @resource.description %>
     </p>
 
-      <%= (link_to 'Edit', edit_resource_path(@resource)) if current_user.id == @resource.user_id %>
-      <%= (link_to 'Delete', resource_path(@resource), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == @resource.user_id %>
+
+      <%= (link_to '', edit_resource_path(@resource), class: 'glyphicon glyphicon-edit', style: "font-size:14px;" ) if current_user.id == @resource.user_id %>
       </div>
+          <%= (link_to '', resource_path(@resource), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == @resource.user_id %>
     </div>
+
+
   </div>
 
 
@@ -29,8 +32,8 @@
           <strong><%= comment.user_name %></strong> -
           <%= time_ago_in_words(comment.created_at) %> ago
           <p><%= comment.body %></p>
-          <%= (link_to 'Edit', edit_comment_path(comment)) if current_user.id == comment.user_id %>
-          <%= (link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.id == comment.user_id %></p>
+          <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit' ) if current_user.id == comment.user_id %>
+              <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
         <% end %>
         <%= render 'comments/form' %>
       </div>
