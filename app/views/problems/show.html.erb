@@ -30,6 +30,7 @@
           <strong><%= comment.user_name %></strong> -
           <%= time_ago_in_words(comment.created_at) %> ago
           <p><%= comment.body %></p>
+          <%= pluralize(comment.votes.count, "vote") %>
           <%= link_to '', upvote_comment_path(comment), method: :post, class: 'glyphicon glyphicon-thumbs-up' %><br><br>
           <%= (link_to '', edit_comment_path(comment), class: 'glyphicon glyphicon-edit') if current_user.id == comment.user_id %>
           <%= (link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash') if current_user.id == comment.user_id %></p>
