@@ -17,8 +17,9 @@ class ProblemsController < ApplicationController
   # GET /problems/1.json
   def show
     @comments = @problem.comments.all
+    @comments = @problem.comments.sort_by(&:vote_count).reverse
     @sorted_comments = @comments.sort { |a, b| b.votes.length <=> a.votes.length }
-
+    @comment = @problem.comments.build
     @comment = @problem.comments.new
   end
 
@@ -78,9 +79,8 @@ class ProblemsController < ApplicationController
     def set_problem
       @problem = Problem.find(params[:id])
 
-      @comments = @problem.comments.sort_by(&:vote_count).reverse
-  
-      @comment = @problem.comments.build
+
+      # @comment = @problem.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

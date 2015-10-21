@@ -2,6 +2,10 @@ body { padding-top: 70px;
   font-family: Rajdhani, Helvetica, Arial, sans-serif;
   line-height: 16px;}
 
+h2 {
+  color: #51acd1;
+}
+
 div.field {
   font-size: 16px;
 }
@@ -26,7 +30,7 @@ div.field {
 }
 
 .panel-info>.panel-heading {
-    color: #777;
+    color: #51acd1;
     background-color: #999;
     border-color: #999;
 }
@@ -36,6 +40,7 @@ div.field {
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    color: #51acd1;
 }
 
 .panel-info {
