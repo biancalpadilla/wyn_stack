@@ -3,4 +3,6 @@ class Interview < ActiveRecord::Base
   has_many :comments
 
   has_many :votes, dependent: :destroy
+
+  # validates :uniqueness, [:title, :description]
 end
