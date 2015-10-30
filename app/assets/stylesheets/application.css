@@ -6,9 +6,39 @@ h2 {
   color: #51acd1;
 }
 
+h1.title {
+  color: #51acd1;
+}
+
+h2.subtitle {
+  color: #585858;
+}
+
+li.subtitle {
+  font-size: 18px;
+  margin-left: -20px;
+  margin-top: 20px;
+}
+
 div.field {
   font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
+
+div.panel.panel-default.login-panel {
+  font-size: 16px;
+  text-align: center;
+}
+
+div.panel {
+  margin-top: 20px;
+}
+
+div.row.login {
+  padding-top: 70px;
+}
+
 
 .navbar-default .navbar-nav>li>a {
     color: #777;
